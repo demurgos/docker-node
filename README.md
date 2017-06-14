@@ -2,9 +2,7 @@
 
 This is my custom image for Node.
 
-Features:
-- Node 7
-- Npm 4
+Includes:
 - Gulp CLI
 - Typings
 - expect
