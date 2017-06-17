@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:8.1
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apt-get update \
