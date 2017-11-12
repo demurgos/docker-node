@@ -4,5 +4,5 @@ This is my custom image for Node.
 
 Includes:
 - Gulp CLI
-- Typings
+- Yarn
 - expect
