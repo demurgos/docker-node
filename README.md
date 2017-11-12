@@ -6,3 +6,4 @@ Includes:
 - Gulp CLI
 - Yarn
 - expect
+- jq
