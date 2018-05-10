@@ -1,4 +1,4 @@
-FROM node:9.4
+FROM node:10
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apt-get update \
