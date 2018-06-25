@@ -17,4 +17,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN npm install --global gulp-cli
 
+RUN node --version \
+  && npm --version \
+  && yarn --version \
+  && gulp --version
+
 CMD [ "node" ]
