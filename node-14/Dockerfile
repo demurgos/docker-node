@@ -1,4 +1,4 @@
-FROM node:13.12
+FROM node:14.0
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apt-get update \
