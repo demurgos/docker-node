@@ -1,4 +1,4 @@
-FROM node:14.0
+FROM node:14.4
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apt-get update \
@@ -15,11 +15,16 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   yarn \
   && rm -rf /var/lib/apt/lists/*
 
-RUN npm install --global gulp-cli
+RUN curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
+  && chmod +x ./rustup-init.sh
+  && ./rustup-init.sh -y --no-modify-path --profile minimal --default-toolchain nightly \
+  && rm ./rustup-init.sh
 
 RUN node --version \
   && npm --version \
   && yarn --version \
-  && gulp --version
+  && rustup --version \
+  && cargo --version \
+  && rustc --version
 
 CMD [ "node" ]
