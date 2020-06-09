@@ -16,7 +16,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
-  && chmod +x ./rustup-init.sh
+  && chmod +x ./rustup-init.sh \
   && ./rustup-init.sh -y --no-modify-path --profile minimal --default-toolchain nightly \
   && rm ./rustup-init.sh
 
