@@ -20,6 +20,8 @@ RUN curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh
   && ./rustup-init.sh -y --profile minimal --default-toolchain nightly \
   && rm ./rustup-init.sh
 
+ENV PATH=$HOME/.cargo/bin:$PATH
+
 RUN node --version \
   && npm --version \
   && yarn --version \
