@@ -1,4 +1,4 @@
-FROM node:14.5
+FROM node:14.9
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apt-get update \
@@ -17,7 +17,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
   && chmod +x ./rustup-init.sh \
-  && ./rustup-init.sh -y --profile minimal --default-toolchain nightly \
+  && ./rustup-init.sh -y --profile minimal --default-toolchain stable \
   && rm ./rustup-init.sh
 
 ENV PATH=/root/.cargo/bin:$PATH
