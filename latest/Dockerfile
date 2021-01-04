@@ -33,7 +33,8 @@ RUN pacman -Syu --quiet --noconfirm --noprogressbar \
     nodejs \
     yarn \
     # Rust (also includes cargo, clippy and rustfmt)
-    rust
-    sccache
+    rust \
+    sccache \
+  && pacman -Sc --quiet --noconfirm
 
 CMD ["/bin/bash"]
