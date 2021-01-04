@@ -13,8 +13,7 @@ RUN apk add --no-cache curl \
 ENV PATH=/root/.cargo/bin:$PATH
 
 RUN apk add --no-cache build-base openssl-dev \
-  && cargo install sccache \
-  && apk del --purge build-base openssl-dev
+  && cargo install sccache
 
 RUN rm -rf "~/.cargo/registry/cache/" "~/.cargo/registry/index/" "~/.cargo/git/db/"
 
