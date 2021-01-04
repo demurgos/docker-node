@@ -1,40 +1,19 @@
-FROM archlinux:latest
+FROM alpine:3.12.3
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
-# Packages (for Flash development with Haxe)
-# Utils: git, coreutils (provides `timeout` and `true`), expect
-# Haxe compilation: camlp4, gcc (provides `as`), make, neko, ocaml, pcre, zlib
-# Flash dev: firefox, flashplugin, xorg-server-xvfb
-RUN pacman -Syu --quiet --noconfirm --noprogressbar \
-  && pacman -S --quiet --noconfirm --noprogressbar \
-    # Base
-    base \
-    base-devel \
-    coreutils \
-    fakeroot \
-    sudo \
-    # Utils
-    expect \
-    ffmpeg \
-    git \
-    jq \
-    # # Haxe
-    # camlp4 \
-    # gcc \
-    # make \
-    # neko \
-    # ocaml \
-    # pcre \
-    # zlib \
-    # # Flash
-    # flashplugin \
-    # xorg-server-xvfb \
-    # Node
-    nodejs \
-    yarn \
-    # Rust (also includes cargo, clippy and rustfmt)
-    rust \
-    sccache \
-  && pacman -Sc --quiet --noconfirm
+RUN apk add --no-cache nodejs yarn
 
-CMD ["/bin/bash"]
+RUN apk add --no-cache curl \
+  && curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
+  && chmod +x ./rustup-init.sh \
+  && ./rustup-init.sh -y --profile minimal --default-toolchain stable --component rusfmt --component clippy \
+  && rm ./rustup-init.sh \
+  && apk del --purge curl
+
+ENV PATH=/root/.cargo/bin:$PATH
+
+RUN apk add --no-cache build-base openssl-dev
+RUN cargo install sccache
+RUN apk del --purge build-base openssl-dev
+
+CMD ["/bin/sh"]
