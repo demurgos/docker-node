@@ -5,4 +5,4 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Echo
 set -x
-cd "${SCRIPT_DIR}" && docker build --tag="demurgos/node:14" .
+cd "${SCRIPT_DIR}" && docker build --tag="demurgos/node:latest" .
