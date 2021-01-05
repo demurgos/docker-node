@@ -1,6 +1,9 @@
 FROM alpine:3.12.3
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
+# TODO: Remove this command once Node 14 is available in stable Alpine
+RUN sed -i -e 's/v[[:digit:]]\..*\//edge\//g' /etc/apk/repositories
+
 RUN apk add --no-cache nodejs yarn
 
 RUN apk add --no-cache curl \
