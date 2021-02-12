@@ -1,4 +1,4 @@
-FROM alpine:3.12.3
+FROM alpine:3.13.1
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 # TODO: Remove this command once Node 14 is available in stable Alpine
