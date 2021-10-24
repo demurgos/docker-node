@@ -1,4 +1,4 @@
-FROM alpine:3.14.0
+FROM alpine:3.14.2
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apk add --no-cache nodejs yarn
@@ -13,7 +13,8 @@ RUN apk add --no-cache curl \
 ENV PATH=/root/.cargo/bin:$PATH
 
 RUN apk add --no-cache build-base openssl-dev \
-  && cargo install sccache
+  && cargo install sccache \
+  && cargo install wasm-bindgen-cli
 
 RUN rm -rf "~/.cargo/registry/cache/" "~/.cargo/registry/index/" "~/.cargo/git/db/"
 
