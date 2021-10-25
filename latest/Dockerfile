@@ -7,6 +7,7 @@ RUN apk add --no-cache curl \
   && curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
   && chmod +x ./rustup-init.sh \
   && ./rustup-init.sh -y --profile minimal --default-toolchain stable --component rustfmt --component clippy \
+  && rustup target add wasm32-unknown-unknown \
   && rm ./rustup-init.sh \
   && apk del --purge curl
 

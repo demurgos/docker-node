@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Exit on error and echo
 set -ex
-docker run -it demurgos/node:latest
+docker run -it demurgos/node:2021.1
