@@ -1,8 +1,7 @@
-FROM alpine:3.15.0
+FROM alpine:3.15.4
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
-# `python3` is required to build the `node-zopfli` package
-RUN apk add --no-cache nodejs python3 yarn
+RUN apk add --no-cache nodejs yarn
 
 RUN apk add --no-cache curl \
   && curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs > ./rustup-init.sh \
