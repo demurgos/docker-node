@@ -1,4 +1,4 @@
-FROM alpine:3.15.4
+FROM alpine:3.16.2
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apk add --no-cache nodejs yarn
