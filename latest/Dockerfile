@@ -1,4 +1,4 @@
-FROM alpine:3.18.2
+FROM alpine:3.18.3
 MAINTAINER Charles Samborski <demurgos@demurgos.net>
 
 RUN apk add --no-cache nodejs yarn
@@ -14,8 +14,8 @@ ENV PATH=/root/.cargo/bin:$PATH
 
 RUN apk add --no-cache curl \
   && mkdir -p /opt/sccache \
-  && curl -L https://github.com/mozilla/sccache/releases/download/v0.5.3/sccache-v0.5.3-x86_64-unknown-linux-musl.tar.gz \
-    | tar -xz --to-stdout "sccache-v0.5.3-x86_64-unknown-linux-musl/sccache" > /opt/sccache/sccache \
+  && curl -L https://github.com/mozilla/sccache/releases/download/v0.5.4/sccache-v0.5.4-x86_64-unknown-linux-musl.tar.gz \
+    | tar -xz --to-stdout "sccache-v0.5.4-x86_64-unknown-linux-musl/sccache" > /opt/sccache/sccache \
   && chmod +x /opt/sccache/sccache \
   && apk del --purge curl
 
