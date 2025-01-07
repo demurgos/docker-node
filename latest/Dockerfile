@@ -19,8 +19,8 @@ ENV PATH=/root/.cargo/bin:$PATH
 
 RUN apk add --no-cache curl \
   && mkdir -p /opt/sccache \
-  && curl -L https://github.com/mozilla/sccache/releases/download/v0.8.2/sccache-v0.8.2-x86_64-unknown-linux-musl.tar.gz \
-    | tar -xz --to-stdout "sccache-v0.8.2-x86_64-unknown-linux-musl/sccache" > /opt/sccache/sccache \
+  && curl -L https://github.com/mozilla/sccache/releases/download/v0.9.1/sccache-v0.9.1-x86_64-unknown-linux-musl.tar.gz \
+    | tar -xz --to-stdout "sccache-v0.9.1-x86_64-unknown-linux-musl/sccache" > /opt/sccache/sccache \
   && chmod +x /opt/sccache/sccache \
   && apk del --purge curl
 
