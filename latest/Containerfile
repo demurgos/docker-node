@@ -1,7 +1,4 @@
-# Use Alpine edge temporarily, to get Node 22
-# Switch to a stable release once Node 22 is there
-# (needed to run `node --test` with a glob)
-FROM docker.io/library/alpine:edge
+FROM docker.io/library/alpine:3.22.1
 LABEL org.opencontainers.image.authors="Charles Samborski <demurgos@demurgos.net>"
 
 RUN apk add --no-cache build-base
